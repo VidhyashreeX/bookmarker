@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 248 250 252;
+  --text: 15 23 42;
+  --card: 255 255 255;
+  --card-border: 226 232 240;
+  --primary: 15 23 42;
+  --accent: 14 165 233;
+}
+
+.dark {
+  --bg: 2 6 23;
+  --text: 241 245 249;
+  --card: 15 23 42;
+  --card-border: 51 65 85;
+  --primary: 226 232 240;
+  --accent: 56 189 248;
+}
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+  @apply transition-colors duration-300;
+}
+
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: float 12s ease-in-out infinite;
+}
+
+.blob-one {
+  top: -6rem;
+  left: -5rem;
+  height: 18rem;
+  width: 18rem;
+  background: rgb(14 165 233 / 0.8);
+}
+
+.blob-two {
+  top: 10rem;
+  right: -4rem;
+  height: 20rem;
+  width: 20rem;
+  background: rgb(16 185 129 / 0.65);
+  animation-delay: 2s;
+}
+
+.blob-three {
+  bottom: -5rem;
+  left: 30%;
+  height: 16rem;
+  width: 16rem;
+  background: rgb(59 130 246 / 0.7);
+  animation-delay: 4s;
+}
+
+.glass-card {
+  background: rgb(var(--card) / 0.62);
+  border: 1px solid rgb(var(--card-border) / 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.fade-in {
+  animation: fade-in 0.4s ease both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(16px);
+  }
+}
